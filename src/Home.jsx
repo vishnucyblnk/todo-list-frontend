@@ -108,9 +108,9 @@ function Home() {
 
   return (
     <div className='container text-center bg-dark text-primary p-3'>
-        <h1 className='m-3 fw-bold'>TO DO LIST</h1>
+        <h1 className='m-3 fw-bold pb-5'>TO-DO-LIST APP</h1>
         <div className='d-flex m-3'>
-            <Form.Control className='bg-white rounded' type="text" placeholder='Enter the todo task' value={addtask.taskname} onChange={(e) => setAddtask({...addtask, taskname: e.target.value})}
+            <Form.Control className='bg-white rounded ps-2' type="text" placeholder='Enter the todo task' value={addtask.taskname} onChange={(e) => setAddtask({...addtask, taskname: e.target.value})}
             />
             <button type="button" className="btn btn-primary" fdprocessedid="b6e74f" onClick={handleUpload}>ADD TASK</button>
         </div>
@@ -140,10 +140,13 @@ function Home() {
                                 
                                 <Modal show={show} onHide={handleClose}>
                                     <Modal.Header closeButton>
-                                        <Form.Control className='bg-white' type="text" value={editedTask ? editedTask.taskname : ''} placeholder='Edit the todo task' onChange={(e) => setEditedTask({ ...editedTask, taskname: e.target.value })}/>
-                                        <button type="button" className="btn btn-primary"  
-                                        fdprocessedid="b6e74f" onClick={()=>editTheTask()}>EDIT TASK</button>
+                                        <Modal.Title>EDIT TASK</Modal.Title>
                                     </Modal.Header>
+                                    <Modal.Body className=''>
+                                            <Form.Control className='bg-white mb-3' type="text" value={editedTask ? editedTask.taskname : ''} placeholder='Edit the todo task' onChange={(e) => setEditedTask({ ...editedTask, taskname: e.target.value })}/>
+                                            <button type="button" className="btn btn-primary w-100"  
+                                            fdprocessedid="b6e74f" onClick={()=>editTheTask()}>Update Task</button>
+                                    </Modal.Body>
                                 </Modal>
                             </tr>
                         ))
