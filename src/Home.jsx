@@ -118,8 +118,8 @@ function Home() {
         <table className='table  rounded text-center fw-bolder fs-3 table-info'>
             <thead>
             <tr>
-                <th >Task Status</th>
                 <th >Task Name</th>
+                <th >Status Changer</th>
                 <th>Edit/Delete</th>
             </tr>
             </thead>
@@ -127,9 +127,12 @@ function Home() {
                 {
                     allTask.length>0?
                         allTask.map((task) =>(
+
                             <tr className={task?.stat ? 'table-success' : 'table-warning'} key={task.id} >
-                                <td style={{textDecoration: task?.stat? 'line-through':'none'}}> <Form.Check  onChange={() => handleStatus(task?.id, task?.stat)}/> </td>
                                 <td style={{textDecoration: task?.stat? 'line-through':'none'}}>{task?.taskname}</td>
+
+                                <td style={{textDecoration: task?.stat? 'line-through':'none'}}> <Form.Check  onChange={() => handleStatus(task?.id, task?.stat)}/> </td>
+                                
                                 <td style={{textDecoration: task?.stat? 'line-through':'none'}}>
                                     <button type='button' className="btn btn-warning me-3" onClick={() => handleShow(task)}><i class="fa-solid fa-pen-to-square"></i></button>
                                     <button type='button' className="btn btn-danger" onClick={()=>deleteTask(task?.id)}><i class="fa-solid fa-trash"></i></button>
